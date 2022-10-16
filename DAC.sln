@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{90482ECC-EBC2-4038-8F83-C763FBE92913}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7CA3856D-0B6B-418B-8A25-BD2DB86001EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAC.DB", "Data\DAC.DB\DAC.DB.csproj", "{4B740F66-9965-4D81-8C52-D1DED8A4F8D5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAC.UI", "DAC.UI\DAC.UI.csproj", "{272467CD-02E3-4F24-9119-0009846DE9EB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4B740F66-9965-4D81-8C52-D1DED8A4F8D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B740F66-9965-4D81-8C52-D1DED8A4F8D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B740F66-9965-4D81-8C52-D1DED8A4F8D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B740F66-9965-4D81-8C52-D1DED8A4F8D5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{272467CD-02E3-4F24-9119-0009846DE9EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{272467CD-02E3-4F24-9119-0009846DE9EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{272467CD-02E3-4F24-9119-0009846DE9EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{272467CD-02E3-4F24-9119-0009846DE9EB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4B740F66-9965-4D81-8C52-D1DED8A4F8D5} = {7CA3856D-0B6B-418B-8A25-BD2DB86001EC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {237F51D4-B8DE-406B-8081-341AA7670569}
+	EndGlobalSection
+EndGlobal
