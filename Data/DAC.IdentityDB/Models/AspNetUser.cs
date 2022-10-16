@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace DAC.IdentityDB.Identity
+namespace DAC.IdentityDB.Models
 {
     public partial class AspNetUser
     {

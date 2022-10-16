@@ -1,0 +1,1 @@
+dotnet-ef dbcontext scaffold "Name=ConnectionStrings:IdentityDbConnection" "Microsoft.EntityFrameworkCore.SqlServer" -p "..\Data\DAC.IdentityDB" -o "Models"  -n "DAC.IdentityDB.Models"

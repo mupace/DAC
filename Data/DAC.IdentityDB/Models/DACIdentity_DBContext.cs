@@ -1,15 +1,17 @@
-﻿using DAC.IdentityDB.Identity;
+﻿using System;
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
-namespace DAC.IdentityDB
+namespace DAC.IdentityDB.Models
 {
-    public partial class DACIdentityDbContext : DbContext
+    public partial class DACIdentity_DBContext : DbContext
     {
-        public DACIdentityDbContext()
+        public DACIdentity_DBContext()
         {
         }
 
-        public DACIdentityDbContext(DbContextOptions<DACIdentityDbContext> options)
+        public DACIdentity_DBContext(DbContextOptions<DACIdentity_DBContext> options)
             : base(options)
         {
         }

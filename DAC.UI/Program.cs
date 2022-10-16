@@ -1,22 +1,22 @@
-using DAC.DB;
-using DAC.IdentityDB;
+using DAC.DB.Models;
+using DAC.IdentityDB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var identityConnectionString = builder.Configuration.GetConnectionString("IdentityDbConnection");
 
-builder.Services.AddDbContext<DACDbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<DAC_DbContext>(options => options.UseSqlServer(connectionString));
 
-builder.Services.AddDbContext<DACIdentityDbContext>(options =>
+builder.Services.AddDbContext<DACIdentity_DBContext>(options =>
     options.UseSqlServer(identityConnectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<DACIdentityDbContext>();
+    .AddEntityFrameworkStores<DACIdentity_DBContext>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
