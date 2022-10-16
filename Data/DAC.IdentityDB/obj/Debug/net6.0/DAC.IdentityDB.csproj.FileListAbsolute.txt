@@ -1,0 +1,14 @@
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.csproj.AssemblyReference.cache
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.GeneratedMSBuildEditorConfig.editorconfig
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.AssemblyInfoInputs.cache
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.AssemblyInfo.cs
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.csproj.CoreCompileInputs.cache
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\bin\Debug\net6.0\DAC.IdentityDB.deps.json
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\bin\Debug\net6.0\DAC.IdentityDB.runtimeconfig.json
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\bin\Debug\net6.0\DAC.IdentityDB.dll
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\bin\Debug\net6.0\DAC.IdentityDB.pdb
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.dll
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\refint\DAC.IdentityDB.dll
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.pdb
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\DAC.IdentityDB.genruntimeconfig.cache
+F:\Projects\Garage\DAC\Data\DAC.IdentityDB\obj\Debug\net6.0\ref\DAC.IdentityDB.dll

@@ -10,10 +10,7 @@ F:\Projects\Garage\DAC\DAC.DB\obj\Debug\net6.0\DAC.DB.dll
 F:\Projects\Garage\DAC\DAC.DB\obj\Debug\net6.0\refint\DAC.DB.dll
 F:\Projects\Garage\DAC\DAC.DB\obj\Debug\net6.0\DAC.DB.pdb
 F:\Projects\Garage\DAC\DAC.DB\obj\Debug\net6.0\ref\DAC.DB.dll
-F:\Projects\Garage\DAC\DAC.DB\bin\Debug\net6.0\DAC.DB.runtimeconfig.json
-F:\Projects\Garage\DAC\DAC.DB\obj\Debug\net6.0\DAC.DB.genruntimeconfig.cache
 F:\Projects\Garage\DAC\Data\DAC.DB\bin\Debug\net6.0\DAC.DB.deps.json
-F:\Projects\Garage\DAC\Data\DAC.DB\bin\Debug\net6.0\DAC.DB.runtimeconfig.json
 F:\Projects\Garage\DAC\Data\DAC.DB\bin\Debug\net6.0\DAC.DB.dll
 F:\Projects\Garage\DAC\Data\DAC.DB\bin\Debug\net6.0\DAC.DB.pdb
 F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\DAC.DB.csproj.AssemblyReference.cache
@@ -24,5 +21,4 @@ F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\DAC.DB.csproj.CoreCompileInp
 F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\DAC.DB.dll
 F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\refint\DAC.DB.dll
 F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\DAC.DB.pdb
-F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\DAC.DB.genruntimeconfig.cache
 F:\Projects\Garage\DAC\Data\DAC.DB\obj\Debug\net6.0\ref\DAC.DB.dll

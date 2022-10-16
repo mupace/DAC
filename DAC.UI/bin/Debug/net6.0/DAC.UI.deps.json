@@ -9,6 +9,7 @@
       "DAC.UI/1.0.0": {
         "dependencies": {
           "DAC.DB": "1.0.0",
+          "DAC.IdentityDB": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.10",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
           "Microsoft.AspNetCore.Identity.UI": "6.0.10",
@@ -540,11 +541,20 @@
       },
       "DAC.DB/1.0.0": {
         "dependencies": {
-          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
+          "Microsoft.EntityFrameworkCore": "6.0.10",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
         },
         "runtime": {
           "DAC.DB.dll": {}
+        }
+      },
+      "DAC.IdentityDB/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.10",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.10"
+        },
+        "runtime": {
+          "DAC.IdentityDB.dll": {}
         }
       }
     }
@@ -920,6 +930,11 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "DAC.DB/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DAC.IdentityDB/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

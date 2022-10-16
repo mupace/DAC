@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data\DAC.DB\DAC.DB.csproj" />
+    <ProjectReference Include="..\Data\DAC.IdentityDB\DAC.IdentityDB.csproj" />
   </ItemGroup>
 
 </Project>

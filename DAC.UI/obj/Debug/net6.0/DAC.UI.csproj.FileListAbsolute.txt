@@ -71,3 +71,5 @@ F:\Projects\Garage\DAC\DAC.UI\obj\Debug\net6.0\refint\DAC.UI.dll
 F:\Projects\Garage\DAC\DAC.UI\obj\Debug\net6.0\DAC.UI.pdb
 F:\Projects\Garage\DAC\DAC.UI\obj\Debug\net6.0\DAC.UI.genruntimeconfig.cache
 F:\Projects\Garage\DAC\DAC.UI\obj\Debug\net6.0\ref\DAC.UI.dll
+F:\Projects\Garage\DAC\DAC.UI\bin\Debug\net6.0\DAC.IdentityDB.dll
+F:\Projects\Garage\DAC\DAC.UI\bin\Debug\net6.0\DAC.IdentityDB.pdb

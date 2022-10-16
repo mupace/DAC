@@ -1,4 +1,5 @@
 using DAC.DB;
+using DAC.IdentityDB;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
 var identityConnectionString = builder.Configuration.GetConnectionString("IdentityDbConnection");
+
+builder.Services.AddDbContext<DACDbContext>(options => options.UseSqlServer(connectionString));
+
 builder.Services.AddDbContext<DACIdentityDbContext>(options =>
     options.UseSqlServer(identityConnectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
