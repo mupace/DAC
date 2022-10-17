@@ -12,3 +12,5 @@ DAC.UI/obj/
 Data/DAC.IdentityDB/obj/
 
 DAC.UI/DAC.UI.csproj.user
+
+Data/DAC.IdentityDB/bin/
