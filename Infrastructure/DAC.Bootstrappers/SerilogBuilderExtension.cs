@@ -4,7 +4,7 @@ using Serilog;
 
 namespace DAC.Bootstrappers
 {
-    public static class SerilogBootstrapper
+    public static class SerilogBuilderExtension
     {
         public static void AddSerilogAsService(this WebApplicationBuilder builder)
         {

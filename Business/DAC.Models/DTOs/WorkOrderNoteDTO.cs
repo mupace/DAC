@@ -1,6 +1,6 @@
 ﻿namespace DAC.Models.DTOs;
 
-public class WorkOrderNoteModel
+public class WorkOrderNoteDTO
 {
     public Guid Id { get; set; }
 

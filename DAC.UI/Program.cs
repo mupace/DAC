@@ -3,7 +3,7 @@ using DAC.DB.Models;
 using DAC.IdentityDB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Serilog;
+using DAC.Business;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +22,8 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.AddSerilogAsService();
+builder.Services.AddDacBusiness();
+
 
 var app = builder.Build();
 

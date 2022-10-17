@@ -1,31 +1,75 @@
 ﻿using DAC.Business.Definitions.WorkOrders;
 using DAC.DB.Models;
+using DAC.Mappers.Definitions;
 using DAC.Models.DTOs;
+using Microsoft.Extensions.Logging;
 
 namespace DAC.Business.WorkOrders;
 
-public class WorkOrderManager: IWorkOrderManager
+public class WorkOrderManager: BusinessBase, IWorkOrderManager
 {
-    
+    private readonly IWorkOrderMapper _workOrderMapper;
 
-
-    public WorkOrderModel GetWorkOrder(Guid id)
+    public WorkOrderManager(IWorkOrderMapper workOrderMapper, DACDBContext dacDbContext, ILogger logger) : base(dacDbContext, logger)
     {
-        throw new NotImplementedException();
+        _workOrderMapper = workOrderMapper;
     }
 
-    public IEnumerable<WorkOrderModel> GetWorkOrders()
+    public WorkOrderDTO GetWorkOrder(Guid id)
     {
-        throw new NotImplementedException();
+        var entity = _dacDbContext.Workorders.FirstOrDefault(x => x.Id == id);
+
+        return entity == null ? null : _workOrderMapper.DbToDto(entity);
     }
 
-    public WorkOrderModel UpdateWorkOrder(WorkOrderModel workOrder)
+    public IQueryable<Workorder> GetWorkOrders()
     {
-        throw new NotImplementedException();
+        return _dacDbContext.Workorders.AsQueryable();
+    }
+
+    public WorkOrderDTO CreateWorkOrder(WorkOrderDTO workOrder)
+    {
+        var dbModel = _workOrderMapper.DtoToDb(workOrder);
+
+        try
+        {
+            _dacDbContext.Workorders.Add(dbModel);
+            _dacDbContext.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "An error occured creating Work Order");
+            return workOrder;
+        }
+
+        return _workOrderMapper.DbToDto(dbModel);
+    }
+
+    public WorkOrderDTO UpdateWorkOrder(WorkOrderDTO workOrder)
+    {
+        var dbModel = _workOrderMapper.DtoToDb(workOrder);
+
+        try
+        {
+            _dacDbContext.Workorders.Update(dbModel);
+            _dacDbContext.SaveChanges();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "An error occured on WorkOrderManager Update");
+        }
+
+        return _workOrderMapper.DbToDto(dbModel);
     }
 
     public bool DeleteWorkOrder(Guid id)
     {
-        throw new NotImplementedException();
+        var entity = GetWorkOrders().FirstOrDefault(x => x.Id == id);
+
+        if (entity == null)
+            return false;
+
+        _dacDbContext.Workorders.Remove(entity);
+        return true;
     }
 }

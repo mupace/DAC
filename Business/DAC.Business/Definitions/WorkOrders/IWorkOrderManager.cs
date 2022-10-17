@@ -1,4 +1,5 @@
-﻿using DAC.Models.DTOs;
+﻿using DAC.DB.Models;
+using DAC.Models.DTOs;
 
 namespace DAC.Business.Definitions.WorkOrders;
 
@@ -9,20 +10,27 @@ public interface IWorkOrderManager
     /// </summary>
     /// <param name="id">Guid value representing work order</param>
     /// <returns>Work order model - null if cannot find it</returns>
-    WorkOrderModel GetWorkOrder(Guid id);
+    WorkOrderDTO GetWorkOrder(Guid id);
 
     /// <summary>
     ///     Get work orders
     /// </summary>
-    /// <returns>Returns all work orders over cache</returns>
-    IEnumerable<WorkOrderModel> GetWorkOrders();
+    /// <returns></returns>
+    IQueryable<Workorder> GetWorkOrders();
+
+    /// <summary>
+    /// Creates a new work order
+    /// </summary>
+    /// <param name="workOrder">WorkOrder DTO object</param>
+    /// <returns></returns>
+    WorkOrderDTO CreateWorkOrder(WorkOrderDTO workOrder);
 
     /// <summary>
     ///     Overwrites existing work order with new object
     /// </summary>
     /// <param name="workOrder">Updated object</param>
     /// <returns>Updated object</returns>
-    WorkOrderModel UpdateWorkOrder(WorkOrderModel workOrder);
+    WorkOrderDTO UpdateWorkOrder(WorkOrderDTO workOrder);
 
     /// <summary>
     ///     Delete work order with given id

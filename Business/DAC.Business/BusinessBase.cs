@@ -3,12 +3,13 @@ using Microsoft.Extensions.Logging;
 
 namespace DAC.Business;
 
-internal class BusinessBase
+public abstract class BusinessBase
 {
-    private readonly DACDBContext _dacDbContext;
+    protected readonly DACDBContext _dacDbContext;
 
-    private ILogger _logger;
-    public BusinessBase(DACDBContext dacDbContext, ILogger logger)
+    protected ILogger _logger;
+
+    protected BusinessBase(DACDBContext dacDbContext, ILogger logger)
     {
         _dacDbContext = dacDbContext;
         _logger = logger;

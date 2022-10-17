@@ -1,6 +1,6 @@
 ﻿namespace DAC.Models.DTOs;
 
-public class WorkOrderModel
+public class WorkOrderDTO
 {
     public Guid Id { get; set; }
 
@@ -14,7 +14,7 @@ public class WorkOrderModel
 
     public DateTime? UpdateDate { get; set; }
 
-    public IEnumerable<WorkOrderNoteModel> WorkOrderNotes { get; set; }
+    public IEnumerable<WorkOrderNoteDTO> WorkOrderNotes { get; set; }
 
     public string ResponsibleName { get; set; }
 }

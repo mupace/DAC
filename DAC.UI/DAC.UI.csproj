@@ -19,10 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DAC.Bootstrappers\DAC.Bootstrappers.csproj" />
+    <ProjectReference Include="..\Business\DAC.Business\DAC.Business.csproj" />
+    <ProjectReference Include="..\Business\DAC.Models\DAC.Models.csproj" />
     <ProjectReference Include="..\Data\DAC.DB\DAC.DB.csproj" />
     <ProjectReference Include="..\Data\DAC.IdentityDB\DAC.IdentityDB.csproj" />
-    <ProjectReference Include="..\Infrastructure\DAC.Bootstrappers\DAC.Bootstrappers.csproj" />
+    <ProjectReference Include="..\Infrastructure\DAC.Bootstrappers\DAC.Extensions.csproj" />
   </ItemGroup>
 
 </Project>
