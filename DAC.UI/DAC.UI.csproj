@@ -14,11 +14,15 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.10" />
+    <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+    <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DAC.Bootstrappers\DAC.Bootstrappers.csproj" />
     <ProjectReference Include="..\Data\DAC.DB\DAC.DB.csproj" />
     <ProjectReference Include="..\Data\DAC.IdentityDB\DAC.IdentityDB.csproj" />
+    <ProjectReference Include="..\Infrastructure\DAC.Bootstrappers\DAC.Bootstrappers.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,5 @@
-﻿using DAC.UI.Models;
+﻿using DAC.DB.Models;
+using DAC.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -8,13 +9,17 @@ namespace DAC.UI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly DACDBContext _dacDbContext;
+
+        public HomeController(ILogger<HomeController> logger, DACDBContext dacDbContext)
         {
             _logger = logger;
+            _dacDbContext = dacDbContext;
         }
 
         public IActionResult Index()
         {
+            _logger.LogCritical("Index ping!");
             return View();
         }
 

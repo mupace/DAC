@@ -1,7 +1,9 @@
+using DAC.Bootstrappers;
 using DAC.DB.Models;
 using DAC.IdentityDB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +20,8 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<DACIdentity_DBContext>();
 builder.Services.AddControllersWithViews();
+
+builder.AddSerilogAsService();
 
 var app = builder.Build();
 

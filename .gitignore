@@ -14,3 +14,23 @@ Data/DAC.IdentityDB/obj/
 DAC.UI/DAC.UI.csproj.user
 
 Data/DAC.IdentityDB/bin/
+
+Infrastructure/DAC.Bootstrappers/obj/
+
+Infrastructure/DAC.Bootstrappers/bin/
+
+DAC.Bootstrappers/obj/
+
+DAC.API/bin/
+
+DAC.API/logs/
+
+DAC.API/obj/
+
+Business/DAC.Models/bin/
+
+Business/DAC.Models/obj/
+
+Business/DAC.Business/obj/
+
+Business/DAC.Business/bin/
