@@ -1,2 +1,14 @@
 
 .vs/
+
+Data/DAC.DB/bin/
+
+Data/DAC.DB/obj/
+
+DAC.UI/bin/
+
+DAC.UI/obj/
+
+Data/DAC.IdentityDB/obj/
+
+DAC.UI/DAC.UI.csproj.user

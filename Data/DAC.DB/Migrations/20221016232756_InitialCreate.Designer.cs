@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DAC.DB.Migrations
 {
-    [DbContext(typeof(DAC_DbContext))]
+    [DbContext(typeof(DACDBContext))]
     [Migration("20221016232756_InitialCreate")]
     partial class InitialCreate
     {

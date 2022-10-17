@@ -1,0 +1,1 @@
+dotnet-ef database update "20221016232756_InitialCreate" -p "..\Data\DAC.DB" -c "DAC_DbContext"

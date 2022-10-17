@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var identityConnectionString = builder.Configuration.GetConnectionString("IdentityDbConnection");
 
-builder.Services.AddDbContext<DAC_DbContext>(options => options.UseSqlServer(connectionString));
+builder.Services.AddDbContext<DACDBContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDbContext<DACIdentity_DBContext>(options =>
     options.UseSqlServer(identityConnectionString));
