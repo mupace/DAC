@@ -2,6 +2,7 @@
 using DAC.Extensions;
 using DAC.Mappers.Definitions;
 using DAC.Models.RequestModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DAC.API.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
+    [ApiController, Authorize]
     public class WorkOrderNoteController : ControllerBase
     {
         private readonly IWorkOrderNoteManager _workOrderNoteManager;

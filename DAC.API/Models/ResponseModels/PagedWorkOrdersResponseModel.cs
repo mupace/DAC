@@ -1,6 +1,6 @@
 ﻿using DAC.Models.DTOs;
 
-namespace DAC.API.ResponseModels;
+namespace DAC.API.Models.ResponseModels;
 
 public class PagedWorkOrdersResponseModel
 {

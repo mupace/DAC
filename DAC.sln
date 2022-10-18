@@ -25,7 +25,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAC.Extensions", "Infrastru
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAC.Mappers", "Business\DAC.Mappers\DAC.Mappers.csproj", "{C1B5B148-310E-4AFA-84D7-21727D1E1749}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAC.Constants", "Infrastructure\DAC.Constants\DAC.Constants.csproj", "{7672F9EC-90C6-472F-9B0B-EAF6E87BB75A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAC.Constants", "Infrastructure\DAC.Constants\DAC.Constants.csproj", "{7672F9EC-90C6-472F-9B0B-EAF6E87BB75A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
