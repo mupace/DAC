@@ -9,10 +9,7 @@ public static class ServiceExtension
 {
     public static IServiceCollection AddDacMappers(this IServiceCollection services)
     {
-        
         services.TryAddTransient<IWorkOrderMapper, WorkOrderMapper>();
-
-        services.AddSingleton<IWorkOrderMapper, WorkOrderMapper>();
         services.TryAddTransient<IWorkOrderNoteMapper, WorkOrderNoteMapper>();
 
         return services;

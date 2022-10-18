@@ -6,7 +6,7 @@ using DAC.Models;
 using DAC.Models.DTOs;
 using Microsoft.Extensions.Logging;
 
-namespace DAC.Business.WorkOrders;
+namespace DAC.Business.Implementations.WorkOrders;
 
 public class WorkOrderManager: BusinessBase, IWorkOrderManager
 {
@@ -17,14 +17,14 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
         _workOrderMapper = workOrderMapper;
     }
 
-    public WorkOrderDTO GetWorkOrder(Guid id)
+    public WorkOrderDTO? GetWorkOrder(Guid id)
     {
-        var entity = _dacDbContext.Workorders.FirstOrDefault(x => x.Id == id);
+        var entity = GetById(id);
 
         return entity == null ? null : _workOrderMapper.DbToDto(entity);
     }
 
-    private Workorder GetById(Guid id)
+    private Workorder? GetById(Guid id)
     {
         return _dacDbContext.Workorders.FirstOrDefault(x => x.Id == id);
     }
@@ -48,7 +48,7 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "An error occured Work Order/Create");
+            _logger.LogError(e, "An error occurred Work Order/Create");
             return workOrder;
         }
 
@@ -74,7 +74,7 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "An error occured on WorkOrderManager/Update");
+            _logger.LogError(e, "An error occurred on WorkOrderManager/Update");
             return new OperationResultModel<WorkOrderDTO>(OperationResult.Error, workOrder);
         }
 

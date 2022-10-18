@@ -1,5 +1,5 @@
 ﻿using DAC.Business.Definitions.WorkOrders;
-using DAC.Business.WorkOrders;
+using DAC.Business.Implementations.WorkOrders;
 using DAC.Mappers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
@@ -14,7 +14,8 @@ public static class ServiceExtension
         services = services.AddDacMappers();
 
         //Add self services
-        services.TryAddTransient<IWorkOrderManager, WorkOrderManager>();
+        services.TryAddScoped<IWorkOrderManager, WorkOrderManager>();
+        services.TryAddScoped<IWorkOrderNoteManager, WorkOrderNoteManager>();
 
         return services;
     }
