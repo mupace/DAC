@@ -38,3 +38,7 @@ Business/DAC.Business/bin/
 Business/DAC.Mappers/bin/
 
 Business/DAC.Mappers/obj/
+
+Infrastructure/DAC.Constants/bin/
+
+Infrastructure/DAC.Constants/obj/

@@ -33,7 +33,16 @@ public class WorkOrderMapper : IWorkOrderMapper
         };
     }
 
-    public WorkOrderDTO RequestModelToDto(WorkOrderCreateRequestModel orderCreate)
+    public WorkOrderDTO CreateRequestModelToDto(WorkOrderCreateRequestModel orderCreate)
+    {
+        return new WorkOrderDTO
+        {
+            Name = orderCreate.Name,
+            Description = orderCreate.Description,
+            Responsible = orderCreate.Responsible.ToString()
+        };
+    }
+    public WorkOrderDTO UpdateRequestModelToDto(WorkOrderUpdateRequestModel orderCreate)
     {
         return new WorkOrderDTO
         {

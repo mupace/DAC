@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Data\DAC.DB\DAC.DB.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\DAC.Constants\DAC.Constants.csproj" />
     <ProjectReference Include="..\DAC.Mappers\DAC.Mappers.csproj" />
     <ProjectReference Include="..\DAC.Models\DAC.Models.csproj" />
   </ItemGroup>

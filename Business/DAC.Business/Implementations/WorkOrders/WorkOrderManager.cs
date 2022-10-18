@@ -1,6 +1,8 @@
 ﻿using DAC.Business.Definitions.WorkOrders;
+using DAC.Constants.enums;
 using DAC.DB.Models;
 using DAC.Mappers.Definitions;
+using DAC.Models;
 using DAC.Models.DTOs;
 using Microsoft.Extensions.Logging;
 
@@ -22,6 +24,11 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
         return entity == null ? null : _workOrderMapper.DbToDto(entity);
     }
 
+    private Workorder GetById(Guid id)
+    {
+        return _dacDbContext.Workorders.FirstOrDefault(x => x.Id == id);
+    }
+
     public IQueryable<Workorder> GetWorkOrders()
     {
         return _dacDbContext.Workorders.AsQueryable();
@@ -31,6 +38,7 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
     {
         var dbModel = _workOrderMapper.DtoToDb(workOrder);
 
+        dbModel.Id = Guid.NewGuid();
         dbModel.CreateDate = DateTime.UtcNow;
 
         try
@@ -40,38 +48,56 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "An error occured creating Work Order");
+            _logger.LogError(e, "An error occured Work Order/Create");
             return workOrder;
         }
 
         return _workOrderMapper.DbToDto(dbModel);
     }
 
-    public WorkOrderDTO UpdateWorkOrder(WorkOrderDTO workOrder)
+    public async Task<OperationResultModel<WorkOrderDTO>> UpdateWorkOrder(WorkOrderDTO workOrder)
     {
-        var dbModel = _workOrderMapper.DtoToDb(workOrder);
+        var entity = GetById(workOrder.Id);
+
+        if (entity == null)
+            return new OperationResultModel<WorkOrderDTO>(OperationResult.NotFound, workOrder);
+
+        entity.Responsible = workOrder.Responsible;
+        entity.Name = workOrder.Name;
+        entity.Description = workOrder.Description;
+        entity.UpdateDate = workOrder.UpdateDate;
 
         try
         {
-            _dacDbContext.Workorders.Update(dbModel);
-            _dacDbContext.SaveChanges();
+            _dacDbContext.Workorders.Update(entity);
+            await _dacDbContext.SaveChangesAsync();
         }
         catch (Exception e)
         {
-            _logger.LogError(e, "An error occured on WorkOrderManager Update");
+            _logger.LogError(e, "An error occured on WorkOrderManager/Update");
+            return new OperationResultModel<WorkOrderDTO>(OperationResult.Error, workOrder);
         }
 
-        return _workOrderMapper.DbToDto(dbModel);
+        return new OperationResultModel<WorkOrderDTO>(OperationResult.Done, _workOrderMapper.DbToDto(entity));
     }
 
-    public bool DeleteWorkOrder(Guid id)
+    public async Task<OperationResult> DeleteWorkOrder(Guid id)
     {
-        var entity = GetWorkOrders().FirstOrDefault(x => x.Id == id);
+        var entity = GetById(id);
 
         if (entity == null)
-            return false;
-
-        _dacDbContext.Workorders.Remove(entity);
-        return true;
+            return OperationResult.NotFound;
+        try
+        {
+            _dacDbContext.Workorders.Remove(entity);
+            await _dacDbContext.SaveChangesAsync();
+        }
+        catch (Exception e)
+        {
+            _logger.LogError(e, "An error occured on WorkOrderManager/Delete");
+            return OperationResult.Error;
+        }
+        
+        return OperationResult.Done;
     }
 }

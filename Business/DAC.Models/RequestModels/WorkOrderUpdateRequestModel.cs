@@ -2,10 +2,9 @@
 
 namespace DAC.Models.RequestModels;
 
-public class WorkOrderCreateRequestModel
+public class WorkOrderUpdateRequestModel
 {
-
-    [Required] 
+    [Required]
     public Guid Responsible { get; set; }
 
     [Required]
