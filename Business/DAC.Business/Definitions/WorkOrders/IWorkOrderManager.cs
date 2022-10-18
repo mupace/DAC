@@ -23,7 +23,7 @@ public interface IWorkOrderManager
     /// </summary>
     /// <param name="workOrder">WorkOrder DTO object</param>
     /// <returns></returns>
-    WorkOrderDTO CreateWorkOrder(WorkOrderDTO workOrder);
+    Task<WorkOrderDTO> CreateWorkOrder(WorkOrderDTO workOrder);
 
     /// <summary>
     ///     Overwrites existing work order with new object

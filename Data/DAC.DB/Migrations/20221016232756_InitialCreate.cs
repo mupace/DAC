@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System.Security.Cryptography.X509Certificates;
+using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -9,19 +11,20 @@ namespace DAC.DB.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Workorders",
+                name: "WorkOrders",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
                     Responsible = table.Column<string>(nullable: false),
                     Name = table.Column<string>(maxLength: 100, nullable: false),
                     Description = table.Column<string>(maxLength: 256, nullable: true),
-                    CreateDate = table.Column<DateTime>(nullable: false, defaultValue: DateTime.UtcNow),
+                    CreateDate = table.Column<DateTime>(nullable: false),
                     UpdateDate = table.Column<DateTime>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Workorders", x => x.Id);
+                    
                 });
 
             migrationBuilder.CreateTable(
@@ -31,7 +34,7 @@ namespace DAC.DB.Migrations
                     Id = table.Column<Guid>(nullable: false),
                     WorkOrderId = table.Column<Guid>(nullable: false),
                     Note = table.Column<string>(nullable: false),
-                    CreateDate = table.Column<DateTime>(nullable: false, defaultValue: DateTime.UtcNow)
+                    CreateDate = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {

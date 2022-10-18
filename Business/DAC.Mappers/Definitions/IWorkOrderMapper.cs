@@ -10,5 +10,5 @@ public interface IWorkOrderMapper
 
     Workorder DtoToDb(WorkOrderDTO order);
 
-    WorkOrderDTO RequestModelToDto(WorkOrderRequestModel order);
+    WorkOrderDTO RequestModelToDto(WorkOrderCreateRequestModel orderCreate);
 }

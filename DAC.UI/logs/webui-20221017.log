@@ -1,0 +1,72 @@
+[2022-10-17 19:29:43.453 -04:00  INF]  Entity Framework Core 6.0.10 initialized 'DACDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+[2022-10-17 20:01:06.113 -04:00  INF]  Entity Framework Core 6.0.10 initialized 'DACDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+[2022-10-17 20:01:06.641 -04:00  INF]  Executed DbCommand (247ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+CREATE DATABASE [DAC.DB];
+[2022-10-17 20:01:06.738 -04:00  INF]  Executed DbCommand (94ms) [Parameters=[], CommandType='"Text"', CommandTimeout='60']
+IF SERVERPROPERTY('EngineEdition') <> 5
+BEGIN
+    ALTER DATABASE [DAC.DB] SET READ_COMMITTED_SNAPSHOT ON;
+END;
+[2022-10-17 20:01:06.756 -04:00  INF]  Executed DbCommand (6ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2022-10-17 20:01:06.830 -04:00  INF]  Executed DbCommand (9ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [__EFMigrationsHistory] (
+    [MigrationId] nvarchar(150) NOT NULL,
+    [ProductVersion] nvarchar(32) NOT NULL,
+    CONSTRAINT [PK___EFMigrationsHistory] PRIMARY KEY ([MigrationId])
+);
+[2022-10-17 20:01:06.832 -04:00  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2022-10-17 20:01:06.848 -04:00  INF]  Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2022-10-17 20:01:06.853 -04:00  INF]  Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2022-10-17 20:01:06.870 -04:00  INF]  Applying migration '20221016232756_InitialCreate'.
+[2022-10-17 20:01:06.891 -04:00  ERR]  Failed executing DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [Workorders] (
+    [Id] uniqueidentifier NOT NULL IDENTITY,
+    [Responsible] nvarchar(max) NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [Description] nvarchar(256) NULL,
+    [CreateDate] datetime2 NOT NULL,
+    [UpdateDate] datetime2 NULL,
+    CONSTRAINT [PK_Workorders] PRIMARY KEY ([Id])
+);
+[2022-10-17 20:02:12.653 -04:00  INF]  Entity Framework Core 6.0.10 initialized 'DACDBContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.10' with options: None
+[2022-10-17 20:02:12.877 -04:00  INF]  Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2022-10-17 20:02:12.899 -04:00  INF]  Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2022-10-17 20:02:12.903 -04:00  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+[2022-10-17 20:02:12.905 -04:00  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+[2022-10-17 20:02:12.916 -04:00  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+[2022-10-17 20:02:12.933 -04:00  INF]  Applying migration '20221016232756_InitialCreate'.
+[2022-10-17 20:02:12.971 -04:00  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [WorkOrders] (
+    [Id] uniqueidentifier NOT NULL,
+    [Responsible] nvarchar(max) NOT NULL,
+    [Name] nvarchar(100) NOT NULL,
+    [Description] nvarchar(256) NULL,
+    [CreateDate] datetime2 NOT NULL,
+    [UpdateDate] datetime2 NULL,
+    CONSTRAINT [PK_Workorders] PRIMARY KEY ([Id])
+);
+[2022-10-17 20:02:12.973 -04:00  INF]  Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+CREATE TABLE [WorkOrderNotes] (
+    [Id] uniqueidentifier NOT NULL,
+    [WorkOrderId] uniqueidentifier NOT NULL,
+    [Note] nvarchar(max) NOT NULL,
+    [CreateDate] datetime2 NOT NULL,
+    CONSTRAINT [PK_WorkOrderNotes] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_WorkOrderNotes_WorkOrders_WorkOrderId] FOREIGN KEY ([WorkOrderId]) REFERENCES [WorkOrders] ([Id]) ON DELETE CASCADE
+);
+[2022-10-17 20:02:12.974 -04:00  INF]  Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20221016232756_InitialCreate', N'6.0.10');

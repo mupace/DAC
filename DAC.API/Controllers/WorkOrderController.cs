@@ -1,4 +1,5 @@
 ﻿using System.Net;
+using System.Reflection.Metadata.Ecma335;
 using DAC.Business.Definitions.WorkOrders;
 using DAC.Mappers.Definitions;
 using DAC.Models.RequestModels;
@@ -14,7 +15,7 @@ namespace DAC.API.Controllers
     {
         private readonly IWorkOrderManager _workOrderManager;
         private readonly IWorkOrderMapper _workOrderMapper;
-        
+
         public WorkOrderController(IWorkOrderManager workOrderManager, IWorkOrderMapper workOrderMapper)
         {
             _workOrderManager = workOrderManager;
@@ -30,35 +31,38 @@ namespace DAC.API.Controllers
 
         // GET api/<WorkOrderController>/5
         [HttpGet("{id}")]
-        public string Get(Guid id)
+        public async Task<IActionResult> Get(Guid id)
         {
-            return "value";
+
+            return Content("asd");
         }
 
         // POST api/<WorkOrderController>
         [HttpPost]
-        public HttpResponseMessage Post([FromBody] WorkOrderRequestModel model)
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> Post([FromBody] WorkOrderCreateRequestModel model)
         {
             if (ModelState.IsValid)
             {
                 var dto = _workOrderMapper.RequestModelToDto(model);
 
-                var obj = _workOrderManager.CreateWorkOrder(dto);
+                var obj = await _workOrderManager.CreateWorkOrder(dto);
 
                 if (obj.Id != Guid.Empty)
-                    return new HttpResponseMessage(HttpStatusCode.Created);
+                    return CreatedAtAction(nameof(Get), new {id = obj.Id}, obj);
 
-                return new HttpResponseMessage(HttpStatusCode.InternalServerError)
-                {
-                    Content = JsonContent.Create("An error occured. Please try again")
-                };
+                return Problem(statusCode: StatusCodes.Status500InternalServerError, detail: "An error occured.Please try again");
             }
-            return new HttpResponseMessage(HttpStatusCode.BadRequest);
+
+            return BadRequest();
         }
 
         // PUT api/<WorkOrderController>/5
         [HttpPut("{id}")]
-        public void Put(Guid id, [FromBody] WorkOrderRequestModel value)
+        public void Put(Guid id, [FromBody] WorkOrderCreateRequestModel value)
         {
         }
 

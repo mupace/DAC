@@ -10,7 +10,7 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
 {
     private readonly IWorkOrderMapper _workOrderMapper;
 
-    public WorkOrderManager(IWorkOrderMapper workOrderMapper, DACDBContext dacDbContext, ILogger logger) : base(dacDbContext, logger)
+    public WorkOrderManager(IWorkOrderMapper workOrderMapper, DACDBContext dacDbContext, ILogger<WorkOrderManager> logger) : base(dacDbContext, logger)
     {
         _workOrderMapper = workOrderMapper;
     }
@@ -27,14 +27,16 @@ public class WorkOrderManager: BusinessBase, IWorkOrderManager
         return _dacDbContext.Workorders.AsQueryable();
     }
 
-    public WorkOrderDTO CreateWorkOrder(WorkOrderDTO workOrder)
+    public async Task<WorkOrderDTO> CreateWorkOrder(WorkOrderDTO workOrder)
     {
         var dbModel = _workOrderMapper.DtoToDb(workOrder);
+
+        dbModel.CreateDate = DateTime.UtcNow;
 
         try
         {
             _dacDbContext.Workorders.Add(dbModel);
-            _dacDbContext.SaveChanges();
+            await _dacDbContext.SaveChangesAsync();
         }
         catch (Exception e)
         {

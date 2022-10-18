@@ -9,7 +9,7 @@ public abstract class BusinessBase
 
     protected ILogger _logger;
 
-    protected BusinessBase(DACDBContext dacDbContext, ILogger logger)
+    protected BusinessBase(DACDBContext dacDbContext, ILogger<BusinessBase> logger)
     {
         _dacDbContext = dacDbContext;
         _logger = logger;

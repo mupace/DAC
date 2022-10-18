@@ -1,9 +1,25 @@
 using DAC.Bootstrappers;
 using DAC.Business;
+using DAC.Business.Definitions.WorkOrders;
+using DAC.Business.WorkOrders;
+using DAC.DB.Models;
+using DAC.IdentityDB.Models;
+using DAC.Mappers.Definitions;
+using DAC.Mappers.Implementations;
+using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var identityConnectionString = builder.Configuration.GetConnectionString("IdentityDbConnection");
+
+builder.Services.AddDbContext<DACDBContext>(options => options.UseSqlServer(connectionString));
+
+builder.Services.AddDbContext<DACIdentity_DBContext>(options =>
+    options.UseSqlServer(identityConnectionString));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -12,9 +28,9 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddResponseCaching();
 
-builder.Services.AddDacBusiness();
-
 builder.AddSerilogAsService();
+
+builder.Services.AddDacBusiness();
 
 var app = builder.Build();
 
