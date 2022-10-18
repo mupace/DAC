@@ -14,7 +14,7 @@ public class WorkOrderDTO
 
     public DateTime? UpdateDate { get; set; }
 
-    public IEnumerable<WorkOrderNoteDTO> WorkOrderNotes { get; set; }
+    public IEnumerable<WorkOrderNoteDTO>? WorkOrderNotes { get; set; }
 
-    public string ResponsibleName { get; set; }
+    public string? ResponsibleName { get; set; }
 }

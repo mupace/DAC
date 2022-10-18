@@ -1,0 +1,24 @@
+﻿@model DAC.Models.DTOs.WorkOrderDTO
+
+@using (Html.BeginForm("Edit", "WorkOrder"))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+    <div class="row">
+        <div class="col-3">
+            @Html.ValidationSummary()
+        </div>
+    </div>
+    <div class="row-cols-2">
+        <div class="col-1">@Html.LabelFor(x=> x.Name)</div>
+        <div class="col-1">@Html.TextBoxFor(x => x.Name)</div>
+    </div>
+    <div class="row-cols-2">
+        <div class="col-1">@Html.LabelFor(x=> x.Description)</div>
+        <div class="col-1">@Html.TextAreaFor(x => x.Description)</div>
+    </div>
+    @Html.HiddenFor(x => x.Responsible)
+
+    <button type="submit" class="btn btn-success" value="Save">Save</button>
+    <a href="/WorkOrder" class="btn btn-danger">Cancel</a>
+}

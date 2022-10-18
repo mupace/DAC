@@ -4,6 +4,7 @@ using DAC.IdentityDB.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using DAC.Business;
+using DAC.UI.Models.Settings;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,8 +23,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.AddSerilogAsService();
+
 builder.Services.AddDacBusiness();
 
+builder.Services.Configure<WorkOrderApiSettings>(builder.Configuration.GetSection("WorkOrderApi"));
 
 var app = builder.Build();
 

@@ -1,0 +1,32 @@
+﻿@model DAC.Models.ResponseModels.PagedWorkOrdersResponseModel
+
+
+<div class="row">
+    <div class="col-12">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Work Order</th>
+                <th scope="col">Responsible</th>
+                <th scope="col">Created At</th>
+                <th scope="col">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.WorkOrders)
+            {
+                <tr>
+                    <th scope="row">@item.Name</th>
+                    <td>@item.Responsible</td>
+                    <td>@item.CreateDate.ToShortDateString()</td>
+                    <td>
+                        <a href="/WorkOrder/Edit/@item.Id" class="btn btn-warning">Edit</a>
+                        <a href="/WorkOrder/Delete/@item.Id" class="btn btn-danger">Edit</a>
+                    </td>
+                </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+</div>

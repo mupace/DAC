@@ -42,3 +42,5 @@ Business/DAC.Mappers/obj/
 Infrastructure/DAC.Constants/bin/
 
 Infrastructure/DAC.Constants/obj/
+
+DAC.UI/logs/
